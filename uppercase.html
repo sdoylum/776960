@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<div x-data="{name:''}">
+		  <input id="name" type="text" x-ref="name"/>
+		  <button id="button" @click='name = $refs.name.value.toUpperCase()'>Show</button>
+		  <p id="namep" x-text="name"></p>
+		</div>
+		<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+	</body>
+	<script type="text/javascript">
+		function unitTest(){
+			document.getElementById("name").value = 'test nest';
+			document.getElementById("button").click();
+			//console.log(document.getElementById("namep").innerText);
+			//console.log(document.getElementById("namep").textContent);
+			if(document.getElementById("namep").innerHTML == 'TEST NEST'){
+			  	console.log('success');
+			}else{
+				console.log('fail');
+			}
+		}
+	</script>
+</html>
